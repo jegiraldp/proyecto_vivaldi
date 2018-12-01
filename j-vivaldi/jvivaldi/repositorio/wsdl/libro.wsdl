@@ -1,0 +1,31 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/axis/libro.jws" xmlns:intf="http://localhost:8080/axis/libro.jws" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:8080/axis/libro.jws">
+	<wsdl:message name="consultaResponse">
+		<wsdl:part name="consultaReturn" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="consultaRequest">
+		<wsdl:part name="codigo" type="xsd:int"/>
+	</wsdl:message>
+	<wsdl:portType name="libro">
+ <wsdl:operation name="consulta" parameterOrder="codigo">
+			<wsdl:input name="consultaRequest" message="impl:consultaRequest"/>
+			<wsdl:output name="consultaResponse" message="impl:consultaResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="libroSoapBinding" type="impl:libro">
+		<wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/> 
+<wsdl:operation name="consulta">
+			<wsdlsoap:operation/> 
+<wsdl:input>
+				<wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace"/>
+			</wsdl:input>
+<wsdl:output>
+				<wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/axis/libro.jws"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="libroService">
+<wsdl:port name="libro" binding="impl:libroSoapBinding">
+			<wsdlsoap:address location="http://localhost:8080/axis/libro.jws"/>
+		</wsdl:port>
+	</wsdl:service>
+ </wsdl:definitions>

@@ -1,0 +1,40 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.*;	
+
+public class reservalibro
+{
+	//aqui se modifica el estado
+	public String reservar(String nombre, String persona) throws ClassNotFoundException, SQLException, InstantiationException
+	{
+	String estado= "no disponible";
+	String url = "jdbc:mysql://127.0.0.1:3306/reservalibro?user=jorge&password=jorge";
+	try {
+    Driver d = (Driver)Class.forName("com.mysql.jdbc.Driver").newInstance();
+	}catch (Exception e) {}
+    Connection conn = DriverManager.getConnection(url);
+	
+	String  SQLSelect = "select estado from reservalibro where nombre="+"'"+nombre+"'";
+	Statement s = conn.createStatement();
+	ResultSet resultado;
+	resultado = s.executeQuery(SQLSelect);
+	String str = "";
+	while(resultado.next()) {
+    str = resultado.getString("estado");}
+	if (str.equals("disponible")){	
+	String  SQLUpdate = "update reservalibro set estado='"+estado+"' where nombre="+"'"+nombre+"'";
+	Statement s2 = conn.createStatement();
+	s2.executeUpdate(SQLUpdate);
+	conn.close();
+	return ("Reservado libro: "+nombre+ " Por: "+persona);
+	}else{
+	conn.close();
+	return ("NoDisponible");}
+		
+	}
+	
+	
+}
+

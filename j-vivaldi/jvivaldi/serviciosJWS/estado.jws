@@ -1,0 +1,45 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.*;	
+
+public class estado
+{
+	String str = "";
+	String base="";
+	
+	public String consulta(String bd) throws ClassNotFoundException, SQLException, InstantiationException
+	{
+	base=bd;
+	try{
+	String url = "jdbc:mysql://127.0.0.1:3306/"+base+"?user=jorge&password=jorge";
+	try {
+    Driver d = (Driver)Class.forName("com.mysql.jdbc.Driver").newInstance();
+	}catch (Exception e) {}
+    Connection conn = DriverManager.getConnection(url);
+	System.out.println("Conectado!!!");
+	
+	String  SQLSelect = "select estado from "+base;
+	Statement s = conn.createStatement();
+	ResultSet resultado;
+	resultado = s.executeQuery(SQLSelect);
+	while(resultado.next()) {
+    str = resultado.getString("estado");
+	}	
+	conn.close();
+
+	
+	} catch (SQLException ex){
+	
+	System.out.println(ex.getMessage());
+	System.out.println("SQL Estate: " + ex.getSQLState());
+	System.out.println("SQL Error: " + ex.getErrorCode());}
+		
+		if(str.equals("")){ return ("no");
+		}else return ("si");
+	}
+	
+	
+}
+

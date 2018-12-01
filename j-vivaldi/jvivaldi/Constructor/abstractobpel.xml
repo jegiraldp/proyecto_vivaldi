@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><process xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"><sequence><flow><actividad1 id="libro"/><actividad2 id="persona"/></flow><actividad3 id="reservalibro"/></sequence></process>

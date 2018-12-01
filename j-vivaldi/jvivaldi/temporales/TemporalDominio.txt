@@ -1,0 +1,54 @@
+
+(:action LibroProcess
+:parameters (?obj)
+:precondition
+(conocido codigoLibro)
+:effect(conocido nombreLibro))
+
+(:action PersonasProcess
+:parameters (?obj)
+:precondition
+(conocido codigoPersona)
+:effect(conocido nombrePersona))
+
+(:action LibrosReservaProcess
+:parameters (?obj)
+:precondition
+(and(conocido nombreLibro) (conocido nombrePersona))
+:effect(reservado nombreLibro))
+
+(:action LibroProcess
+:parameters (?obj)
+:precondition
+(conocido codigoLibro)
+:effect(conocido nombreLibro))
+
+(:action PersonasProcess
+:parameters (?obj)
+:precondition
+(conocido codigoPersona)
+:effect(conocido nombrePersona))
+
+(:action LibrosReservaProcess
+:parameters (?obj)
+:precondition
+(and(conocido nombreLibro) (conocido nombrePersona))
+:effect(reservado nombreLibro))
+
+(:action LibroProcess
+:parameters (?obj)
+:precondition
+(conocido codigoLibro)
+:effect(conocido nombreLibro))
+
+(:action PersonasProcess
+:parameters (?obj)
+:precondition
+(conocido codigoPersona)
+:effect(conocido nombrePersona))
+
+(:action LibrosReservaProcess
+:parameters (?obj)
+:precondition
+(and(conocido nombreLibro) (conocido nombrePersona))
+:effect(reservado nombreLibro))

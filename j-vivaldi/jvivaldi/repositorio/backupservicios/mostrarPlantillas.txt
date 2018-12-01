@@ -1,0 +1,37 @@
+/*
+		System.out.println("nombre= "+servicio1.get("nombre"));
+		System.out.println("censado= "+servicio1.get("censado"));
+		System.out.println("entradas= "+servicio1.get("entradas"));
+		System.out.println("salidas= "+servicio1.get("salidas"));
+		System.out.println("precondiciones= "+servicio1.get("precondiciones"));
+		System.out.println("poscondiciones= "+servicio1.get("poscondiciones"));
+		System.out.println("Operadores_pre= "+servicio1.get("operadorwfPre"));
+		System.out.println("Operadores_pos= "+servicio1.get("operadorwfPos"));
+		System.out.println("-------      -------      -------     -------     -------");
+		System.out.println("nombre= "+servicio2.get("nombre"));
+		System.out.println("censado= "+servicio2.get("censado"));
+		System.out.println("entradas= "+servicio2.get("entradas"));
+		System.out.println("salidas= "+servicio2.get("salidas"));
+		System.out.println("precondiciones= "+servicio2.get("precondiciones"));
+		System.out.println("poscondiciones= "+servicio2.get("poscondiciones"));
+		System.out.println("Operadores_pre= "+servicio2.get("operadorwfPre"));
+		System.out.println("Operadores_pos= "+servicio2.get("operadorwfPos"));
+		System.out.println("-------      -------      -------     -------     -------");
+		System.out.println("nombre= "+servicio3.get("nombre"));
+		System.out.println("censado= "+servicio3.get("censado"));
+		System.out.println("entradas= "+servicio3.get("entradas"));
+		System.out.println("salidas= "+servicio3.get("salidas"));
+		System.out.println("precondiciones= "+servicio3.get("precondiciones"));
+		System.out.println("oscondiciones= "+servicio3.get("poscondiciones"));
+		System.out.println("Operadores_pre= "+servicio3.get("operadorwfPre"));
+		System.out.println("Operadores_pos= "+servicio3.get("operadorwfPos"));
+		System.out.println("-------      -------      -------     -------     -------");*/
+
+
+///////////
+para limpiar
+try{
+		        	public FileWriter fw, fwLimpiar,fwLimpiar2;	
+		        	fwLimpiar = new FileWriter (".\\temporales\\TemporalDominio.txt");
+					fwLimpiar2 = new FileWriter (".\\temporales\\TemporalPredicados.txt");
+				}catch(IOException ioex){};

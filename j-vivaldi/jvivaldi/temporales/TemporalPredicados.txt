@@ -1,0 +1,36 @@
+precondiciones
+(conocido codigoLibro)
+efectos
+(conocido nombreLibro)
+precondiciones
+(conocido codigoPersona)
+efectos
+(conocido nombrePersona)
+precondiciones
+(and(conocido nombreLibro) (conocido nombrePersona))
+efectos
+(reservado nombreLibro)
+precondiciones
+(conocido codigoLibro)
+efectos
+(conocido nombreLibro)
+precondiciones
+(conocido codigoPersona)
+efectos
+(conocido nombrePersona)
+precondiciones
+(and(conocido nombreLibro) (conocido nombrePersona))
+efectos
+(reservado nombreLibro)
+precondiciones
+(conocido codigoLibro)
+efectos
+(conocido nombreLibro)
+precondiciones
+(conocido codigoPersona)
+efectos
+(conocido nombrePersona)
+precondiciones
+(and(conocido nombreLibro) (conocido nombrePersona))
+efectos
+(reservado nombreLibro)

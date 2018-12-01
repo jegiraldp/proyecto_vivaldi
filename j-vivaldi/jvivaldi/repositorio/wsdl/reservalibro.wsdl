@@ -1,0 +1,32 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/axis/reservalibro.jws" xmlns:intf="http://localhost:8080/axis/reservalibro.jws" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:8080/axis/reservalibro.jws">
+	<wsdl:message name="reservarResponse">
+		<wsdl:part name="reservarReturn" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="reservarRequest">
+		<wsdl:part name="nombre" type="xsd:string"/>
+		<wsdl:part name="persona" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:portType name="reservalibro">
+<wsdl:operation name="reservar" parameterOrder="nombre persona">
+			<wsdl:input name="reservarRequest" message="impl:reservarRequest"/>
+			<wsdl:output name="reservarResponse" message="impl:reservarResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="reservalibroSoapBinding" type="impl:reservalibro">
+		<wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/> 
+<wsdl:operation name="reservar">
+			<wsdlsoap:operation/> 
+<wsdl:input>
+				<wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace"/>
+			</wsdl:input>
+<wsdl:output>
+				<wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/axis/reservalibro.jws"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="reservalibroService">
+<wsdl:port name="reservalibro" binding="impl:reservalibroSoapBinding">
+			<wsdlsoap:address location="http://localhost:8080/axis/reservalibro.jws"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,46 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8081/axis/Dictionary.jws" xmlns:intf="http://localhost:8081/axis/Dictionary.jws" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:8081/axis/Dictionary.jws">
+	<wsdl:message name="traducirRequest">
+		<wsdl:part name="InputString" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="traducirResponse">
+		<wsdl:part name="traducirReturn" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:portType name="Dictionary">
+- <wsdl:operation name="traducir" parameterOrder="InputString">
+			<wsdl:input name="traducirRequest" message="impl:traducirRequest"/>
+			<wsdl:output name="traducirResponse" message="impl:traducirResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DictionarySoapBinding" type="impl:Dictionary">
+		<wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/> 
+- <wsdl:operation name="traducir">
+			<wsdlsoap:operation/> 
+- <wsdl:input>
+				<wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace"/>
+			</wsdl:input>
+- <wsdl:output>
+				<wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8081/axis/Dictionary.jws"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DictionaryService">
+- <wsdl:port name="Dictionary" binding="impl:DictionarySoapBinding">
+			<wsdlsoap:address location="http://localhost:8081/axis/Dictionary.jws"/>
+		</wsdl:port>
+	</wsdl:service>
+- <!-- 
+WSDL created by Apache Axis version: 1.3
+Built on Oct 05, 2005 (05:23:37 EDT)
+
+  --> 
+- 
+- 
+- 
+- 
+<patternLinkType name="DictonaryProcessPLT">
+		<role name="DictonaryProcessRN">
+			<portType name="Dictionary"/>
+		</role>
+	</patternLinkType>
+
+- </wsdl:definitions>
